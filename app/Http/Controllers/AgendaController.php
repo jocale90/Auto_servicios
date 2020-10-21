@@ -33,13 +33,25 @@ class AgendaController extends Controller
   public function store(Request $request)
     {
                 //Definicion parametros
-                $fecha = date('Y-m-d H:i');
+                $fecha = date('Y-m-d');
                 $sucursal = $request->get("sucursal");
                 $mecanico = $request->get("mecanico");
                 $correo = $request->get("correo");
                 $nombrec = $request->get("nombrec");
+                $hora = $request->get("hora");
 
-                $validar = Agenda::where('correo',$correo)->get();
+                $validar =  Agenda::where('correo',$correo)->get();
+                $validar2 = Agenda::where('hora',$hora)->where('fecha',$fecha)->get();
+
+                if(isset($validar2))
+                {
+                    if(count($validar2) > 0)
+                    {
+                        return redirect()->route('agenda.index')->with(['message' => 'Otro cliente ya tiene esta hora: '.$hora.' Para el dia de hoy '.$fecha]); 
+                    }
+                }
+
+
 
                 if(isset($validar))
                 {

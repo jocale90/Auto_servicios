@@ -94,7 +94,7 @@
                         <option value="14:40"> 14:40</option>
                     </select>
                     <select name="sucursal" id="sucursal" required="required">
-                        <option value="0"> Favor seleccionar sucursal</option>
+                        <option value=""> Favor seleccionar sucursal</option>
                         @if(isset($sucursales))
                             @foreach($sucursales as $su)
                                 <option value="{{$su->nombre}}">{{$su->nombre}}</option>
@@ -102,7 +102,7 @@
                         @endif
                     </select>
                     <select name="mecanico" id="mecanico" required="required">
-                        <option value="0"> Favor seleccionar mecanico</option>
+                        <option value=""> Favor seleccionar mecanico</option>
                         @if(isset($mecanicos))
                             @foreach($mecanicos as $me)
                                 <option value="{{$me->nombrem}}">{{$me->nombrem}}</option>
