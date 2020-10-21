@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('sucursal', 'SucursalController');
+Route::resource('mecanico', 'MecanicoController');
+Route::resource('agenda', 'agendaController');
